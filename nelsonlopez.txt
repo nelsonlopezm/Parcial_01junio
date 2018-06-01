@@ -1,0 +1,44 @@
+plsql(:data).execute <<-SQL
+ create table amortizacion (
+  numero_cuota integer,
+  cuota_mensual decimal(15,2),
+  abono_capital decimal(15,2),
+  abono_interes decimal(15,2),
+  saldo decimal(15,2)
+)
+SQL
+
+plsql(:data).execute <<-SQL
+ create or replace procedure CALCULAR_SIMULACION (numero_cuota in integer,cuota_mensual in decimal,abono_capital in decimal, abono_interes in decimal, saldo in decimal)
+ as
+ tasa decimal  ;
+ cuota decimal ;
+ saldo decimal ;
+ begin
+ 
+drop table  amortizacion ;
+
+    if
+    
+    end if;
+    
+ end;
+SQL
+
+plsql(:data).execute <<-SQL
+ CREATE OR REPLACE VIEW PLAN_AMORTIZACION  AS 
+select numero_cuota,cuota_mensual,abono_capital,abono_interes,saldo 
+from amortizacion 
+order by numero_cuota;
+SQL
+
+plsql(:data).execute <<-SQL
+ -- 
+ -- 
+SQL
+
+
+plsql(:data).execute <<-SQL
+ -- 
+ -- 
+SQL
