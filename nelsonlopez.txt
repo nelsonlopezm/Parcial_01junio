@@ -4,7 +4,9 @@ plsql(:data).execute <<-SQL
   cuota_mensual decimal(15,2),
   abono_capital decimal(15,2),
   abono_interes decimal(15,2),
-  saldo decimal(15,2)
+  saldo decimal(15,2),
+  promedio_interes decimal (15,2)
+)
 )
 SQL
 
@@ -26,10 +28,11 @@ drop table  amortizacion ;
 SQL
 
 plsql(:data).execute <<-SQL
- CREATE OR REPLACE VIEW PLAN_AMORTIZACION  AS 
-select numero_cuota,cuota_mensual,abono_capital,abono_interes,saldo 
+CREATE OR REPLACE VIEW PLAN_AMORTIZACION  AS 
+select numero_cuota,cuota_mensual,abono_capital,abono_interes,saldo,promedio_interes 
 from amortizacion 
 order by numero_cuota;
+
 SQL
 
 plsql(:data).execute <<-SQL
